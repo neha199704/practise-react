@@ -5,8 +5,7 @@ function ToDo() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [emoji, setEmoji] = useState(false);
-  //   const [selectIndex, setSelectIndex] = useState(null);
+  const [emojiIndex, setEmojiIndex] = useState(null);
 
   const addTodo = () => {
     if (title === "" || description === "") return;
@@ -14,6 +13,7 @@ function ToDo() {
     const newTodo = {
       title,
       description,
+      emoji: "",
     };
 
     setTodos([...todos, newTodo]);
@@ -32,40 +32,33 @@ function ToDo() {
     setDescription(todos[index].description);
   };
 
-  const handleEmoji = (index) => {
-    const find = todos.find((elem) => elem != todos[index]);
-    console.log(find);
-    console.log(index);
+  const handleEmoji = (index, emoji) => {
+    const updatedTodos = todos.map((todo, i) =>
+      i === index ? { ...todo, emoji } : todo
+    );
+    setTodos(updatedTodos);
+    setEmojiIndex(null);
   };
 
   const TestComp = ({ index }) => (
     <div>
+      <button onClick={() => handleEmoji(index, "❤️")}>❤️</button>
+      <button onClick={() => handleEmoji(index, "👍")}>👍</button>
+      <button onClick={() => handleEmoji(index, "😂")}>😂</button>
+      <button onClick={() => handleEmoji(index, "😲")}>😲</button>
+      <button onClick={() => handleEmoji(index, "😉")}>😉</button>
       <button onClick={() => handleEmoji(index)}>
-        <i className="fa-solid fa-heart"></i>
-      </button>
-      <button onClick={() => handleEmoji(index)}>
-        <i className="fa-solid fa-thumbs-up"></i>
-      </button>
-      <button>
-        <i className="fa-solid fa-face-grin-tears"></i>
-      </button>
-      <button>
-        <i className="fa-regular fa-face-surprise"></i>
-      </button>
-      <button>
-        <i className="fa-regular fa-face-smile-wink"></i>
-      </button>
-      <button>
         <i className="fa-solid fa-circle-plus"></i>
       </button>
     </div>
   );
   return (
-    <div>
-      {emoji && <TestComp />}
+    <div className="mainDiv">
+      {/* {emoji && <TestComp />} */}
       <h1>To-Do</h1>
       <div className="div">
         <input
+          className="input"
           name="title"
           type="text"
           value={title}
@@ -74,6 +67,7 @@ function ToDo() {
         />
 
         <textarea
+          className="input"
           name="description"
           value={description}
           placeholder="Add Description here"
@@ -81,20 +75,21 @@ function ToDo() {
         ></textarea>
         <button onClick={addTodo}>Add todo</button>
       </div>
-      <ul className="div">
+      <ul className="div.">
         {todos.map((todo, index) => (
           <li className="box" key={index}>
-            <h3>{todo.title}</h3>
-            <p>{todo.description}</p>
+            <h3>Title : {todo.title}</h3>
+            <p>Description : {todo.description}</p>
+            {todo.emoji && <p>{todo.emoji}</p>}
             <div>
               <button
                 onClick={() => {
-                  setEmoji(!emoji);
-                  //   setSelectIndex === index;
+                  setEmojiIndex(emojiIndex === index ? null : index);
                 }}
               >
-                <i className="fa-solid fa-face-grin"></i>
+                <i className="fa-regular fa-face-grin"></i>
               </button>
+              {emojiIndex === index && <TestComp index={index} />}
             </div>
             <button onClick={() => handleEdit(index)}>Edit</button>
             <button onClick={() => deleteListItem(index)}>Delete</button>
