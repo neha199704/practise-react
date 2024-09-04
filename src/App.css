@@ -1,42 +1,139 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* .box {
+  border: 1px solid silver;
+  margin: 5px;
+  padding: 10px;
+  list-style-type: none;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-between; */
+/* width: 600px; */
+/* gap: 15px; 
+}
+
+.mainDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input {
+  width: 200px;
+  height: 50px;
+  margin: 5px;
+}
+/*  
+.div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 5px;
+} */
+
+.FormMainDiv {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  height: 700px;
+  background-color: #121111;
+  opacity: 88%;
+  /* align-items: center; */
+}
+
+.insideDiv {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* align-items: center; */
+
+  /* height: 700px; */
+  width: 300px;
+  margin-bottom: 100px;
+}
+.checkbox {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0;
+}
+.checkbox p {
+  font-size: 16px;
+  color: #ffffff;
+}
+h1 {
+  margin: 0 0 28px;
+  font-size: 32px;
+  color: #ffffff;
+}
+
+.inputs {
+  border: 1px solid #63676b;
+  padding: 10px;
+  height: 40px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #111;
+
+  /* width: 100%; */
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+input {
+  background: transparent;
+  outline: none;
+  width: 100%;
+  border: none;
+}
+
+.err {
+  color: red;
+  font-size: 13px;
+}
+
+.signIn {
+  width: 100%;
+  background-color: #e60913;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+.or {
   text-align: center;
+  margin: 5px 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.signIn2 {
+  width: 100%;
+  background-color: #403c3a;
+  margin: 5px 0;
+  border-radius: 4px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.check {
+  border-radius: 0.125rem;
+  height: 18px;
+
+  width: 18px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.New {
+  margin: 10px 0;
+  color: #ffffff;
+  font-size: 16px;
 }
-
-.card {
-  padding: 2em;
+.last button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  color: #0072ec;
 }
-
-.read-the-docs {
-  color: #888;
+.last {
+  font-size: 13px;
 }
